@@ -1,0 +1,54 @@
+.homeSlider {
+    &__top {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+
+        &-bg{
+            background-size: 77%;
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+        &-img {
+            margin: 0 auto;
+        }
+        &-btn{
+            &-register{
+                box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.125);
+                padding: 0.7rem 2rem;
+            }
+        }
+    }
+
+    &__bottom{
+        background-color: #fff;
+        border-radius: 24px;
+    }
+
+    
+}
+
+.swiper-button {
+    &-prev {
+        background-color: $bg-btn-slide;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        &::after {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $bg-btn-blue;
+        }
+    }
+    &-next {
+        background-color: $bg-btn-slide;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        &::after {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $bg-btn-blue;
+        }
+    }
+}
+

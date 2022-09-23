@@ -1,0 +1,39 @@
+.home {
+    position: relative;
+    
+    &__bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 97% 102%;
+        z-index: -1;
+    }
+
+    &__banner{
+        padding-bottom: 4rem;
+    }
+    
+    &__video {
+        &-card {
+            box-shadow: 0px 16px 24px rgba(8, 47, 83, 0.24);
+            border-radius: 24px;
+            background-color: #fff;
+
+            &-head {
+                &-btn {
+                    width: 8px;
+                    height: 8px;
+
+                    &.red {
+                        background-color: #eb6a5d;
+                    }
+                    &.yellow {
+                        background-color: #f3be4f;
+                    }
+                    &.green {
+                        background-color: #64c354;
+                    }
+                }
+            }
+        }
+    }
+}

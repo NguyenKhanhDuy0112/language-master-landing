@@ -1,0 +1,52 @@
+.homeMember{
+    &__card{
+        background-color: #fff;
+        border-radius: 16px;
+
+        &-header{
+            box-shadow: 0px 4px 16px rgba(30, 130, 187, 0.5);
+            background: $bg-gradient;
+            border-radius: 16px;
+
+            &-btn{
+                background-color: #fff;
+                border-radius: 48px;
+                outline: none;
+                border: none;
+                color: $bg-btn-blue;
+            }
+        }
+        &-body{
+            &-list{
+
+            }
+            &-item{
+                position: relative;
+                color: $bg-btn-blue;
+                font-size: 0.97rem;
+                font-weight: 500;
+
+                &::before{
+                    content: "\2022";
+                    color: red;
+                    font-weight: bold;
+                    display: inline-block; 
+                    width: 1em;
+                    margin-left: -1em;
+                }
+            }
+
+        }
+        &-footer{
+
+            &-btn{
+                padding: 0.65rem 1rem !important;
+                font-size: 1rem !important;
+            }
+            &-text{
+                color: #61686B;
+                font-size: 0.75rem;
+            }
+        }
+    }
+}

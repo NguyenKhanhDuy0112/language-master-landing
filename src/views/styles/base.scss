@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: $color-text;
+    font-family: "Be Vietnam Pro", "Aprial", sans-serif;
+}
+
+.font-saira{
+    font-family: "Saira", "Aprial",sans-serif;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+a {
+    text-decoration: none !important;
+    color: $color-text !important;
+
+}
+
+ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+li {
+    list-style-type: none;
+}
+.container-custom{
+    padding: 0 4rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transition: all ease 0.3s;
+    &.active {
+        opacity: 1;
+        display: block;
+
+        @include responsive(lg-screen) {
+            display: none;
+            opacity: 0;
+        }
+    }
+}
+
+.btn-custom{
+    padding: 0.45rem 1.2rem;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.fs-title{
+    font-size: 3.5rem;
+}
+
+.bg-btn-blue{
+    background-color: $bg-btn-blue;
+}
+.bg-pink-gradient{
+    background: $bg-gradient;
+}
+.bg-btn-light{
+    background-color: $bg-btn-light;
+}
+.color-blue{
+    color: $bg-btn-blue;
+}
+.color-pink{
+    color: $color-pink;
+}
+
+.fw{
+    &-900{
+        font-weight: 900;
+    }
+    &-800{
+        font-weight: 800;
+    }
+    &-700{
+        font-weight: 700;
+    }
+    &-600{
+        font-weight: 600;
+    }
+    &-500{
+        font-weight: 500;
+    }
+    &-400{
+        font-weight: 400;
+    }
+}
