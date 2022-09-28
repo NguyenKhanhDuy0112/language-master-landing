@@ -31,10 +31,10 @@
     &-prev {
         background-color: $bg-btn-slide;
         border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
         &::after {
-            font-size: 1.1rem;
+            font-size: 1rem !important;
             font-weight: 700;
             color: $bg-btn-blue;
         }
@@ -42,13 +42,14 @@
     &-next {
         background-color: $bg-btn-slide;
         border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
         &::after {
-            font-size: 1.1rem;
+            font-size: 1rem !important;
             font-weight: 700;
             color: $bg-btn-blue;
         }
     }
 }
+
 

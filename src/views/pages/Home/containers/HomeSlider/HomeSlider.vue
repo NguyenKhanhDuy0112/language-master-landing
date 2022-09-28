@@ -90,6 +90,9 @@
 <script lang="ts" setup>
 import { images, backgrounds } from "@/assets/index";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import SwiperCore, { Navigation } from "swiper";
+
+SwiperCore.use([Navigation])
 
 const onSwiper = (swiper: any) => {
   console.log(swiper);

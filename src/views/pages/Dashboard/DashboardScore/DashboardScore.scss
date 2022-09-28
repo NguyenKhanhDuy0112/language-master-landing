@@ -1,0 +1,98 @@
+.dashboard{
+    &__score {
+        box-shadow: 0 4px 8px rgb(0 ,0, 0,  0.08);
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all ease .3s;
+        &-card {
+            &:hover{
+                background-color: $bg-blue-light;
+            }
+            &.green {
+                .dashboard__score-number {
+                    background-color: $bg-green-light;
+                    color: $color-green;
+                }
+                .dashboard__score-progress {
+                    border-color: $bg-green-light;
+                    &::after {
+                        background-color: $bg-green-light;
+                    }
+                }
+            }
+            &.red {
+                .dashboard__score-number {
+                    background-color: $bg-red-light;
+                    color: $color-red;
+                }
+                .dashboard__score-progress {
+                    border-color: $bg-red-light;
+                    &::after {
+                        background-color: $bg-red-light;
+                    }
+                }
+            }
+            &.blue {
+                .dashboard__score-number {
+                    background-color: $bg-blue-light;
+                    color: $color-blue;
+                }
+                .dashboard__score-progress {
+                    border-color: $bg-blue-light;
+                    &::after {
+                        background-color: $bg-blue-light;
+                    }
+                }
+            }
+        }
+        &-total {
+            border: 1px solid #357a9b;
+            border-radius: 4px;
+            color: $bg-btn-blue;
+            font-weight: 700;
+        }
+        &-completed {
+            display: block;
+            background-color: #f9fafa;
+            border-radius: 12px;
+        }
+        &-number {
+            background-color: $bg-orange-light;
+            color: $color-orange;
+            display: block;
+            font-size: 1.1rem;
+            @include flex-center();
+            font-weight: 700;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+        }
+        &-progress {
+            position: relative;
+            @include flex-center();
+            border: 6px solid $bg-orange-light;
+            border-radius: 50%;
+            width: 92px;
+            height: 92px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -6px;
+                background-color: $color-orange;
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        &-text{
+            color: #61686B;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        &-question{
+            font-size: 1.1rem;
+        }
+    }
+}

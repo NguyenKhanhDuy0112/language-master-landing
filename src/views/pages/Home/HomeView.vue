@@ -50,6 +50,7 @@
     </div>
     <HomeSlider />
     <HomeMember />
+    <HomeSignup/>
   </article>
 </template>
 
@@ -57,6 +58,7 @@
 import { images, backgrounds } from "@/assets";
 import HomeMember from "@/views/pages/Home/containers/HomeMember/HomeMember.vue";
 import HomeSlider from "@/views/pages/Home/containers/HomeSlider/HomeSlider.vue";
+import HomeSignup from "@/views/pages/Home/containers/HomeSignup/HomeSignup.vue";
 
 import { ref } from "vue";
 </script>

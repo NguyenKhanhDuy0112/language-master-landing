@@ -5,8 +5,16 @@
 
         &-header{
             box-shadow: 0px 4px 16px rgba(30, 130, 187, 0.5);
-            background: $bg-gradient;
+            background: radial-gradient(218.51% 281.09% at 100% 100%, rgba(242, 92, 92, 0.6) 0%, rgba(0, 176, 200, 0.6) 41.15%, rgba(0, 80, 200, 0.6) 79.69%);
             border-radius: 16px;
+            backdrop-filter: blur(10.9254px);
+
+            &.basic{
+                background: radial-gradient(175.97% 223.07% at 100% 100%, rgba(92, 242, 215, 0.6) 0%, rgba(242, 92, 92, 0.6) 41.15%, rgba(247, 228, 53, 0.6) 79.69%)
+            }
+            &.premium{
+                background: radial-gradient(114.82% 298.23% at 50% -20.1%, rgba(212, 92, 242, 0.6) 0%, rgba(0, 176, 200, 0.6) 41.15%, rgba(242, 92, 92, 0.6) 79.69%)
+            }
 
             &-btn{
                 background-color: #fff;
@@ -22,17 +30,17 @@
             }
             &-item{
                 position: relative;
+                display: flex;
                 color: $bg-btn-blue;
                 font-size: 0.97rem;
-                font-weight: 500;
+                font-weight: 400;
 
                 &::before{
                     content: "\2022";
-                    color: red;
+                    color: $bg-btn-blue;
                     font-weight: bold;
                     display: inline-block; 
-                    width: 1em;
-                    margin-left: -1em;
+                    min-width: 0.9em;
                 }
             }
 

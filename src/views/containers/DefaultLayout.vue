@@ -1,6 +1,6 @@
 <template lang="">
   <Header/>
-  <section>
+  <section class = "main">
     <router-view></router-view>
   </section>
 </template>

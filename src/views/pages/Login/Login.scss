@@ -1,0 +1,44 @@
+.login {
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    min-width: 600px;
+    border-radius: 5px;
+    margin: auto;
+
+    &__container {
+        height: 100vh;
+    }
+    &__header {
+        height: 80px;
+        @include flex-center();
+    }
+    &__field {
+        &-label {
+            &.require {
+                &::after {
+                    content: "*";
+                    color: $color-red;
+                    margin-right: 4px;
+                }
+            }
+        }
+        &-input {
+            caret-color: #357A9B;
+            &::placeholder{
+                color: #D4D7D8 !important;
+                font-size: 0.9rem !important;
+            }
+        }
+    }
+    &__btn {
+        background-color: $color-pink;
+        width: 45%;
+        color: #fff;
+        border-radius: 24px;
+
+        &-google {
+            background-color: #bc1b1b;
+            width: 50%;
+        }
+    }
+}

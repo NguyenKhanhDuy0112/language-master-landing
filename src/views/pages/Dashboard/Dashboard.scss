@@ -1,0 +1,72 @@
+.dashboard {
+    &__title{
+        font-size: 1.49rem;
+        @include responsive(lg-screen){
+            font-size: 2rem;
+        }
+    }
+    &__btn {
+        &-start {
+            border-radius: 4px;
+            width: 100%;
+
+            @include responsive(lg-screen){
+                width: auto;
+            }
+        }
+    }
+    &__bg-name {
+        top: 50%;
+        transform: translateY(26%);
+    }
+    &__banner {
+        overflow: hidden;
+        &-bg {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            &-1 {
+                position: absolute;
+                top: 0;
+                right: 20%;
+                img {
+                    height: 125px;
+                }
+            }
+            &-2 {
+                position: absolute;
+                top: 0;
+                right: 21%;
+
+                img {
+                    height: 120px;
+                }
+            }
+            &-3 {
+                position: absolute;
+                top: 0;
+                right: 21.5%;
+                img {
+                    height: 112px;
+                }
+            }
+        }
+    }
+    &__banner {
+        &-title {
+            background: linear-gradient(270deg, #357a9b 0%, #44abe5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        &-btn {
+            background: linear-gradient(270deg, #357a9b 0%, #44abe5 100%);
+            border-radius: 52px;
+        }
+    }
+}
+
+

@@ -1,0 +1,72 @@
+.progress {
+    &-circle {
+        position: relative;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        @include flex-center();
+
+        &.green {
+            &::before {
+                content: "";
+                position: absolute;
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                background-color: $bg-green-light;
+                border: 10px solid #fff;
+            }
+        }
+
+
+        &.blue{
+            &::before {
+                content: "";
+                position: absolute;
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                background-color: $bg-blue-light;
+                border: 10px solid #fff;
+            }
+        }
+
+        &.red{
+            &::before {
+                content: "";
+                position: absolute;
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                background-color: $bg-red-light;
+                border: 10px solid #fff;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            // background-color: $bg-orange-light;
+            border: 10px solid #fff;
+        }
+    }
+    &-value {
+        position: relative;
+        font-size: 1rem;
+        color: $color-orange;
+        font-weight: 700;
+
+        &.green {
+            color: $color-green;
+        }
+        &.blue {
+            color: $color-blue;
+        }
+        &.red {
+            color: $color-red;
+        }
+    }
+}

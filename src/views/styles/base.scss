@@ -15,6 +15,11 @@ body {
     font-family: "Saira", "Aprial",sans-serif;
 }
 
+.bg-blue-gradient{
+    min-height: 100vh;
+    background: linear-gradient(180deg, #357A9B 13.54%, #B0DBE8 93.75%);
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -32,8 +37,37 @@ ul {
 li {
     list-style-type: none;
 }
+
+button{
+    outline: none;
+    border: none;
+}
 .container-custom{
-    padding: 0 4rem;
+    padding: 0 1rem;
+
+    @include responsive(md-screen){
+        padding: 0 2.5rem;
+    }
+
+    @include responsive(xxl-screen){
+        padding: 0 4rem;
+    }
+
+}
+.card-custom{
+    border: 1px solid $color-border;
+    border-radius: 4px;
+}
+.card-custom-no-border{
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgb(0 ,0, 0,  0.08);
+
+}
+.main{
+    background-color: $bg-main;
+    min-height: 100vh;
+    margin-top: 65px;
 }
 
 .overlay {
@@ -58,6 +92,13 @@ li {
     }
 }
 
+.my-auto{
+    margin: auto 0;
+}
+.mx-auto{
+    margin: 0 auto;
+}
+
 .btn-custom{
     padding: 0.45rem 1.2rem;
     border-radius: 100px;
@@ -71,21 +112,28 @@ li {
 .fs-title{
     font-size: 3.5rem;
 }
+.bg{
+    &-btn-blue{
+        background-color: $bg-btn-blue;
+    }
+    &-pink-gradient{
+        background: $bg-gradient;
+    }
+    &-btn-light{
+        background-color: $bg-btn-light;
+    }   
+}
 
-.bg-btn-blue{
-    background-color: $bg-btn-blue;
-}
-.bg-pink-gradient{
-    background: $bg-gradient;
-}
-.bg-btn-light{
-    background-color: $bg-btn-light;
-}
-.color-blue{
-    color: $bg-btn-blue;
-}
-.color-pink{
-    color: $color-pink;
+.color {
+    &-blue{
+        color: $bg-btn-blue;
+    }
+    &-des{
+        color: $color-des;
+    }
+    &-pink{
+        color: $color-pink;
+    }
 }
 
 .fw{
@@ -107,4 +155,8 @@ li {
     &-400{
         font-weight: 400;
     }
+}
+
+.dropdown-toggle{
+    background-color: transparent !important;
 }
