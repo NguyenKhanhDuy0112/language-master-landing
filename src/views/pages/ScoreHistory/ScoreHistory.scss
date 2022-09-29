@@ -1,0 +1,18 @@
+.scoreHistory {
+    &__percent {
+        background: linear-gradient(270deg, #357a9b 0%, #44abe5 100%);
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    &__first-col{
+        
+        border-right: none;
+
+        @include responsive(lg-screen){
+            border-right: 1px solid #ccc;
+            
+        }
+    }
+}

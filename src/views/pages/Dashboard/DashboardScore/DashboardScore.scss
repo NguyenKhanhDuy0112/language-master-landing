@@ -6,6 +6,9 @@
         cursor: pointer;
         transition: all ease .3s;
         &-card {
+            border-radius: 4px;
+            transition: all ease .3s;
+            cursor: pointer;
             &:hover{
                 background-color: $bg-blue-light;
             }

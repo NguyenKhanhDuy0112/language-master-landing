@@ -15,23 +15,39 @@
             Your Email
           </label>
           <input
-            v-model="formLogin.email"
+            v-model="formData.email"
             id="email"
+            @input="(event) => handleClearMessage(event, 'email')"
             placeholder="Enter your email"
             class="login__field-input form-control py-2 px-3"
+            :class="[{ 'is-invalid': showError && messageValidate.email }]"
           />
+          <div
+            v-if="showError && messageValidate.email"
+            class="invalid-feedback"
+          >
+            {{ messageValidate.email }}
+          </div>
         </div>
         <div class="login__field mb-3">
           <label for="password" class="login__field-label fw-500 mb-1 require">
             Your Password
           </label>
           <input
-            v-model="formLogin.password"
+            v-model="formData.password"
             id="password"
+            @input="(event) => handleClearMessage(event, 'password')"
             type="password"
+            :class="[{ 'is-invalid': showError && messageValidate.password }]"
             placeholder="Enter your password"
             class="login__field-input form-control py-2 px-3"
           />
+          <div
+            v-if="showError && messageValidate.password"
+            class="invalid-feedback"
+          >
+            {{ messageValidate.password }}
+          </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
@@ -72,35 +88,77 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { images, icons } from "@/assets";
 import authService from "@/services/authService";
 import { saveToken } from "@/shared/helpers/localStorage";
 
+const messageEmail = 'Please enter your email'
+const messagePassword = 'Please enter your password'
+
 const router = useRouter();
-const formLogin = ref<{ email: string; password: string }>({
+const showError = ref<boolean>(false);
+
+const messageValidate = {
+  email: messageEmail,
+  password: messagePassword,
+};
+
+const formData = reactive({
   email: "",
   password: "",
 });
 
+const handleClearMessage = (e: any, inputName: string) => {
+  if (e.target.value) {
+    showError.value = false;
+    if (inputName === "email") {
+      messageValidate.email = "";
+    }
+    if (inputName === "password") {
+      messageValidate.password = "";
+    }
+  } else {
+    showError.value = true;
+    if (inputName === "email") {
+      messageValidate.email = messageEmail;
+    }
+    if (inputName === "password") {
+      messageValidate.password = messagePassword;
+    }
+  }
+};
+
 const handleLogin = () => {
-  authService
-    .loginLeaner({
-      userName: formLogin.value.email,
-      password: formLogin.value.password,
-    })
-    .then((res) => {
-      saveToken(res.data.token);
-      router.push("/dashboard");
-    });
+  if (formData.email && formData.password) {
+    showError.value = false;
+    authService
+      .loginLeaner({
+        userName: formData.email,
+        password: formData.password,
+      })
+      .then((res) => {
+        saveToken(res.data.token);
+        router.push("/dashboard");
+      });
+  } else {
+    showError.value = true;
+    if (!formData.email) {
+      messageValidate.email = messageEmail;
+    }
+    if (!formData.password) {
+      messageValidate.password = messagePassword;
+    }
+  }
 };
 
 defineExpose({
   handleLogin,
+  handleClearMessage,
   images,
-  icons
-})
+  icons,
+});
 </script>
 
 <script lang="ts">

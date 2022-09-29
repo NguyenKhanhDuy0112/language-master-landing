@@ -15,7 +15,8 @@ export const icons = {
     googlePlus: require('@/assets/icons/google.svg'),
     closeIcon: require('@/assets/icons/close-icon.webp'),
     toggleMenu: require('@/assets/icons/toggle-menu.webp'),
-    signout: require('@/assets/icons/signout.svg')
+    signout: require('@/assets/icons/signout.svg'),
+    arrowRight: require('@/assets/icons/ic_arrow_right.svg')
 }
 
 export const backgrounds = {

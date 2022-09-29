@@ -14,33 +14,19 @@
         View all
       </button>
     </div>
-    <b-tabs content-class="" class = "mt-3 dashboard__mistake-tabs">
+    <b-tabs content-class="" class="mt-3 dashboard__mistake-tabs">
       <b-tab title="Speaking" active>
-        <div class = "dashboard__mistake-question mb-2">
-          <span class = "dashboard__mistake-question-number">
-            1
-          </span>
-          <span class = "dashboard__mistake-question-text ms-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor …. 
-          </span>
-        </div>
-        <div class = "dashboard__mistake-question">
-          <span class = "dashboard__mistake-question-number">
-            2
-          </span>
-          <span class = "dashboard__mistake-question-text ms-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor …. 
-          </span>
-        </div>
+        <Mistake v-for="(item) in speaking" :number = "item.numberQuestion" :title = "item.title"/>
       </b-tab>
+      
       <b-tab title="Writing">
-        <p>Reading tab</p>
+        <Mistake v-for="(item) in writing" :number = "item.numberQuestion" :title = "item.title"/>
       </b-tab>
       <b-tab title="Reading">
-        <p>Speaking tab!</p>
+        <Mistake v-for="(item) in reading" :number = "item.numberQuestion" :title = "item.title"/>
       </b-tab>
       <b-tab title="Listening">
-        <p>Speaking tab!</p>
+        <Mistake v-for="(item) in listening" :number = "item.numberQuestion" :title = "item.title"/>
       </b-tab>
     </b-tabs>
   </article>
@@ -48,14 +34,41 @@
 
 <script lang="ts" setup>
 import { icons } from "@/assets";
+import homeService from "@/services/homeService";
+import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
+import { Mistake as MistakeI } from "@/shared/interfaces";
+import Mistake  from "@/components/Mistake/Mistake.vue";
+
+const speaking = ref<MistakeI[]>();
+const writing = ref<MistakeI[]>();
+const reading = ref<MistakeI[]>();
+const listening = ref<MistakeI[]>();
+
+onMounted(() => {
+  handleLoadCommonMistake(1);
+  handleLoadCommonMistake(2);
+  handleLoadCommonMistake(3);
+  handleLoadCommonMistake(4);
+});
+
+const handleLoadCommonMistake = (type: number) => {
+  switch(type){
+    case 1: return homeService.getComonMistake(type).then((res) => (speaking.value = res.data));
+    case 2: return homeService.getComonMistake(type).then((res) => (writing.value = res.data));
+    case 3: return homeService.getComonMistake(type).then((res) => (reading.value = res.data));
+    case 4: return homeService.getComonMistake(type).then((res) => (listening.value = res.data));
+  }
+};
 
 defineExpose({
-  icons
-})
+  icons,
+  Mistake
+});
 </script>
 
 <script lang="ts">
-export default {}
+export default {};
 </script>
 
 <style lang="scss" src="./DashboardMistake.scss"></style>

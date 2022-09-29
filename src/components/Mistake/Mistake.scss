@@ -1,0 +1,40 @@
+.mistake{
+    &-question {
+        display: flex;
+        align-items: center;
+        &-number {
+            @include flex-center();
+            width: 4rem;
+            height: 2.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            background-color: $bg-red-light;
+            color: $color-red;
+
+            &.active{
+                background-color: #E9EBEC;
+                color: #000;
+            }
+
+            @include responsive(md-screen){
+                width: 2.5rem;
+            }
+
+            @include responsive(lg-screen){
+                width: 2.5rem;
+            }
+        }
+        &-text {
+            font-weight: 400;
+        }
+    }
+    &-btn{
+        background-color: $bg-blue-light;
+        border-radius: 4px;
+        transition: all ease .3s;
+        &-text{
+            font-weight: 600;
+            color: $bg-btn-blue;
+        }
+    }
+}

@@ -4,7 +4,7 @@
     :style="{
       background: `conic-gradient(#${background} ${
         3.6 * percent
-      }deg, #${color} 0deg)`,
+      }deg, #${color} 0deg)`, '--my-color-var': `#${color}`
     }"
   >
     <span class="progress-value" :style="{
@@ -21,7 +21,6 @@ interface PieChartProps {
 }
 const props = defineProps<PieChartProps>();
 
-console.log(props)
 
 defineExpose({
   props,

@@ -1,9 +1,14 @@
 .login {
     background: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    min-width: 600px;
+    max-width: calc(100% - 32px);
+    min-width: calc(100% - 32px);
     border-radius: 5px;
     margin: auto;
+
+    @include responsive(lg-screen) {
+        max-width: 600px;
+        min-width: 600px;
+    }
 
     &__container {
         height: 100vh;
@@ -23,22 +28,36 @@
             }
         }
         &-input {
-            caret-color: #357A9B;
-            &::placeholder{
-                color: #D4D7D8 !important;
+            caret-color: #357a9b;
+            &::placeholder {
+                color: #d4d7d8 !important;
                 font-size: 0.9rem !important;
             }
         }
     }
     &__btn {
         background-color: $color-pink;
-        width: 45%;
+        width: 100%;
         color: #fff;
         border-radius: 24px;
+        font-weight: 500;
+        transition: all ease .3s;
+
+        &:hover{
+            background-color: $bg-btn-blue;
+        }
+
+        @include responsive(lg-screen){
+            width: 45%;
+        }
 
         &-google {
             background-color: #bc1b1b;
-            width: 50%;
+            width: 100%;
+
+            @include responsive(lg-screen){
+                width: 50%;
+            }
         }
     }
 }

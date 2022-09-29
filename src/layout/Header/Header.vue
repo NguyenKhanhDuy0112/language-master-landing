@@ -3,7 +3,9 @@
     <div class="container-custom">
       <div class="row">
         <div class="col-lg-auto col">
-          <img :src="images.logo" alt="Logo" />
+          <router-link to = "/dashboard">
+            <img :src="images.logo" alt="Logo" />
+          </router-link>
         </div>
         <div class="col d-lg-block d-none">
           <Nav />

@@ -3,7 +3,7 @@
     <li class="nav__item">
       <router-link
         active-class="active"
-        to="/"
+        to="/dashboard"
         class="nav__item-link d-flex align-items-center justify-content-lg-center h-100 mx-lg-4 mx-0"
       >
         Home
