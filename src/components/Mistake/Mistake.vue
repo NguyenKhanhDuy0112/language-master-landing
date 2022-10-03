@@ -1,17 +1,25 @@
 <template lang="">
-  <div class="mistake-question d-flex justify-content-between align-items-center mb-2">
-    <div class = "d-flex align-items-center">
-      <span class="mistake-question-number" :class="[{ active: mistake }]"> #{{ number }} </span>
-      <span class="mistake-question-text ms-2">
+  <div class="mistake-question row align-items-center mb-2">
+    <div class="col-auto">
+      <span class="mistake-question-number" :class="[{ active: mistake }]">
+        #{{ number }}
+      </span>
+    </div>
+    <div class="col">
+      <span class="mistake-question-text">
         {{ title }}
       </span>
     </div>
-    <button class = "mistake-btn d-flex px-3 py-1 justify-content-center align-items-center">
-        <span class = "mistake-btn-text">Visit</span>
-        <div class = "mistake-btn-img ms-2">
-            <img  class = "w-100" :src = "icons.arrowRight"  alt = ""/>
+    <div class="col-auto">
+      <button
+        class="mistake-btn d-flex px-3 py-1 justify-content-center align-items-center"
+      >
+        <span class="mistake-btn-text">Visit</span>
+        <div class="mistake-btn-img ms-2">
+          <img class="w-100" :src="icons.arrowRight" alt="" />
         </div>
-    </button>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -21,13 +29,13 @@ import { icons } from "@/assets";
 interface MistakeProps {
   title: string;
   number: number;
-  mistake?: boolean
+  mistake?: boolean;
 }
 const props = defineProps<MistakeProps>();
 
 defineExpose({
   props,
-  icons
+  icons,
 });
 </script>
 

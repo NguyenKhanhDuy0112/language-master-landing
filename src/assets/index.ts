@@ -16,7 +16,9 @@ export const icons = {
     closeIcon: require('@/assets/icons/close-icon.webp'),
     toggleMenu: require('@/assets/icons/toggle-menu.webp'),
     signout: require('@/assets/icons/signout.svg'),
-    arrowRight: require('@/assets/icons/ic_arrow_right.svg')
+    arrowRight: require('@/assets/icons/ic_arrow_right.svg'),
+    angleLeft: require('@/assets/icons/angle-left.svg'),
+    angleRight: require('@/assets/icons/angle-right.svg')
 }
 
 export const backgrounds = {

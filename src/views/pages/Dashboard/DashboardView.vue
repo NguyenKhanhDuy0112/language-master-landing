@@ -4,8 +4,10 @@
       <div class="d-flex row g-3 justify-content-between align-items-center">
         <div class="col-lg-auto">
           <div class="position-relative mb-3">
-            <div class = "d-inline-block position-relative">
-              <h2 class="color-blue d-inline-block dashboard__title fw-700 mb-0">
+            <div class="d-inline-block position-relative">
+              <h2
+                class="color-blue d-inline-block dashboard__title fw-700 mb-0"
+              >
                 Welcome, {{ userName }}!
               </h2>
               <div class="position-absolute dashboard__bg-name end-0">
@@ -15,7 +17,9 @@
           </div>
         </div>
         <div class="col-lg-auto col-12">
-          <button class="dashboard__btn-start fw-500 bg-btn-blue text-white px-4 py-2">
+          <button
+            class="dashboard__btn-start fw-500 bg-btn-blue text-white px-4 py-2"
+          >
             Start test
           </button>
         </div>
@@ -53,6 +57,7 @@
       </div> -->
 
       <DashboardMistake />
+      
     </article>
   </section>
 </template>
@@ -61,12 +66,17 @@
 import { onMounted, ref } from "vue";
 import accountService from "@/services/accountService";
 import { backgrounds } from "@/assets";
-import DashboardMistake from "./DashboardMistake/DashboardMistake.vue";
 import DashboardScore from "./DashboardScore/DashboardScore.vue";
+import { useStore } from "vuex";
+import DashboardMistake from "./DashboardMistake/DashboardMistake.vue";
+
+const store = useStore();
 
 const userName = ref<string>("");
 onMounted(() => {
-  handleLoadProfile();
+  setTimeout(() => {
+    handleLoadProfile();
+  }, 2000);
 });
 
 const handleLoadProfile = () => {

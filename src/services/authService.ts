@@ -1,7 +1,7 @@
 import api from "./api"
 
 const loginLeaner = (body: {userName: string, password: string}) => {
-    return api.post(`${api.url.auth}/LearnerLogin`, body).then((res:any) => res.data)
+    return api.post(`${api.url.auth}/LearnerLogin`, body).then((res) => res.data)
 }
 
 const authService = {

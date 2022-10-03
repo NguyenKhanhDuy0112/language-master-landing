@@ -1,0 +1,34 @@
+.pagination{
+    &__list{
+
+    }
+    &__item{
+        @include flex-center();
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 50%;
+        border: 1px solid $color-border;
+        cursor: pointer;
+        transition: all ease .3s;
+
+        &.active{
+            border-color: $bg-btn-blue;
+            color: $bg-btn-blue;
+        }
+
+        &:hover{
+            background-color: $bg-btn-blue;
+            color: #fff;
+        }
+        
+        &.icon{
+            background-color: $bg-blue-light;
+            &.disabled{
+                opacity: 0.6;
+                pointer-events:none;
+            }
+        }
+    }
+}

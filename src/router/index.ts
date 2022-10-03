@@ -1,52 +1,43 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import DashboardView from "@/views/pages/Dashboard/DashboardView.vue";
-import DefaultLayout from "@/views/containers/DefaultLayout.vue";
-import ScoreHistory from "@/views/pages/ScoreHistory/ScoreHistory.vue";
-import LayoutHideHeader from "@/views/containers/LayoutHideHeader.vue";
 import LoginView from "@/views/pages/Login/LoginView.vue";
-import NotFound from "@/views/pages/NotFound/NotFound.vue";
-import CommonMistake from "@/views/pages/CommonMistake/CommonMistake.vue";
-import Meeting from "@/views/pages/Meeting/Meeting.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "default",
     redirect: '/dashboard',
-    component: DefaultLayout,
+    component: () => import(/* webpackChunkName: "view-layout" */"@/views/containers/DefaultLayout.vue"),
     meta: { auth: true },
     children: [
       {
         path: "meet",
-        component: Meeting
+        component: () =>  import(/* webpackChunkName: "view-meet" */"@/views/pages/Meeting/Meeting.vue"),
       },
       {
         path: "dashboard",
-        component: DashboardView,
+        component: () => import(/* webpackChunkName: "view-dashboard" */"@/views/pages/Dashboard/DashboardView.vue"),
       },
       {
         path: "scores",
-        component: ScoreHistory,
+        component: () => import(/* webpackChunkName: "view-scores" */"@/views/pages/ScoreHistory/ScoreHistory.vue"),
       },
       {
         path: "mistakes",
-        component: CommonMistake,
+        component: () => import(/* webpackChunkName: "view-mistakes" */"@/views/pages/CommonMistake/CommonMistake.vue"),
       },
+      {
+        path: "/saved-question",
+        component: () => import(/* webpackChunkName: "view-question" */"@/views/pages/SaveQuestion/SaveQuestion.vue")
+      }
     ],
   },
   {
     path: "/signin",
     name: "Singin",
     meta: { auth: false },
-    component: LayoutHideHeader,
-    children: [
-      {
-        path: "",
-        component: LoginView,
-      },
-    ],
+    component: () => import(/* webpackChunkName: "view-signin" */"@/views/pages/Login/LoginView.vue"),
   },
-  { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
+  { path: "/:pathMatch(.*)*", name: "NotFound", component: () => import (/* webpackChunkName: "view-dashboard" */"@/views/pages/NotFound/NotFound.vue") },
 ];
 
 const router = createRouter({
@@ -56,7 +47,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem("USER_TOKEN");
-
   if (to.meta.auth && !token) {
     next("/signin");
   } else {

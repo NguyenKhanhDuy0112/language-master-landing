@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
+import moduleAuth from "./modules/auth";
+import moduleTodo from "./modules/todo";
 
 export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: {
+    auth: moduleAuth,
+    todo: moduleTodo
+  },
 });

@@ -86,7 +86,9 @@ const handleChangeColor = (type: string) => {
 };
 
 const handleLoadScoringHistory = () => {
-  homeService.getScoreHistory().then((res) => (scoreHistory.value = res.data));
+ homeService
+      .getScoreHistory()
+      .then((res) => (scoreHistory.value = res.data));
 };
 
 defineExpose({

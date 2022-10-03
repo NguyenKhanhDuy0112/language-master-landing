@@ -1,12 +1,12 @@
-import { getToken, loadState } from './../shared/helpers/localStorage';
+import { deleteToken, getToken } from "./../shared/helpers/localStorage";
 import axios from "axios";
 
 const url = {
   baseUrl: "https://lang-mates-test-api.aegona.work/api",
   dashboard: "/dashboard",
-  auth: '/Auth',
-  account: '/Account',
-  home: '/HomePages'
+  auth: "/Auth",
+  account: "/Account",
+  home: "/HomePages",
 };
 
 const instance = axios.create({
@@ -15,7 +15,6 @@ const instance = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
-
 });
 
 const api = {
@@ -33,19 +32,27 @@ instance.interceptors.request.use(async (config: any) => {
   return config;
 });
 
-// instance.interceptors.response.use((response) => {
-//     return response;
-// }, (error) => {
-//     if (error.response) {
-//         window.location.href = '/no-internet';
-//     }  else {
-//         switch (error.response.status) {
-//             case 401: window.location.href = '/login'; break;
-//             case 403: window.location.href = '/no-permission'; break;
-//             default : break
-//         }
-//     }
-//     return Promise.reject(error);
-// })
+instance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    switch (error.response.status) {
+      case 401:
+        window.location.href = "/signin";
+        break;
+      case 403:
+        window.location.href = "/no-permission";
+        break;
+      case 451:
+        deleteToken()
+        alert("Cookie expired, Please login to access the system");
+        break;
+      default:
+        window.location.href = '/no-internet';
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default api;

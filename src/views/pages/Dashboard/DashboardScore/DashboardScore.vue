@@ -54,6 +54,14 @@
           />
         </div>
       </div>
+      <div class="col d-none">
+        <Doughnut
+          :chart-options="optionsDoughnut"
+          :chart-data="chartData"
+          chart-id="chartId"
+          dataset-id-key="datasetIdKey"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -63,10 +71,55 @@ import { onMounted, ref } from "vue";
 import homeService from "@/services/homeService";
 import PieChart from "@/components/PieChart/PieChart.vue";
 import YourScore from "@/components/YourScore/YourScore.vue";
+import { Doughnut } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  ArcElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
+ChartJS.register(
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 const score = ref<any>();
 onMounted(() => {
   handleLoadScore();
+});
+
+const optionsDoughnut = ref({
+  responsive: true,
+  plugins: {
+    legend: {
+      display: true,
+      position: "top",
+    },
+    title: {
+      display: false,
+    },
+  },
+});
+
+const chartData = ref({
+  labels: ["Image", "Text", "Audio", "Video"],
+  datasets: [
+    {
+      label: "Tensorflow",
+      data: [10, 12, 20, 12],
+      backgroundColor: ["#22BC8E", "#8DC63F", "#6388B4", "#ED7D31"],
+      borderWidth: 0,
+    },
+  ],
 });
 
 const handleLoadScore = () => {

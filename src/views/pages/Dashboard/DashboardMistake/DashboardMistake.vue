@@ -16,17 +16,33 @@
     </div>
     <b-tabs content-class="" class="mt-3 dashboard__mistake-tabs">
       <b-tab title="Speaking" active>
-        <Mistake v-for="(item) in speaking" :number = "item.numberQuestion" :title = "item.title"/>
+        <Mistake
+          v-for="item in speaking"
+          :number="item.numberQuestion"
+          :title="item.title"
+        />
       </b-tab>
-      
+
       <b-tab title="Writing">
-        <Mistake v-for="(item) in writing" :number = "item.numberQuestion" :title = "item.title"/>
+        <Mistake
+          v-for="item in writing"
+          :number="item.numberQuestion"
+          :title="item.title"
+        />
       </b-tab>
       <b-tab title="Reading">
-        <Mistake v-for="(item) in reading" :number = "item.numberQuestion" :title = "item.title"/>
+        <Mistake
+          v-for="item in reading"
+          :number="item.numberQuestion"
+          :title="item.title"
+        />
       </b-tab>
       <b-tab title="Listening">
-        <Mistake v-for="(item) in listening" :number = "item.numberQuestion" :title = "item.title"/>
+        <Mistake
+          v-for="item in listening"
+          :number="item.numberQuestion"
+          :title="item.title"
+        />
       </b-tab>
     </b-tabs>
   </article>
@@ -38,7 +54,7 @@ import homeService from "@/services/homeService";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { Mistake as MistakeI } from "@/shared/interfaces";
-import Mistake  from "@/components/Mistake/Mistake.vue";
+import Mistake from "@/components/Mistake/Mistake.vue";
 
 const speaking = ref<MistakeI[]>();
 const writing = ref<MistakeI[]>();
@@ -53,17 +69,29 @@ onMounted(() => {
 });
 
 const handleLoadCommonMistake = (type: number) => {
-  switch(type){
-    case 1: return homeService.getComonMistake(type).then((res) => (speaking.value = res.data));
-    case 2: return homeService.getComonMistake(type).then((res) => (writing.value = res.data));
-    case 3: return homeService.getComonMistake(type).then((res) => (reading.value = res.data));
-    case 4: return homeService.getComonMistake(type).then((res) => (listening.value = res.data));
+  switch (type) {
+    case 1:
+      return homeService
+        .getComonMistake(type)
+        .then((res) => (speaking.value = res.data));
+    case 2:
+      return homeService
+        .getComonMistake(type)
+        .then((res) => (writing.value = res.data));
+    case 3:
+      return homeService
+        .getComonMistake(type)
+        .then((res) => (reading.value = res.data));
+    case 4:
+      return homeService
+        .getComonMistake(type)
+        .then((res) => (listening.value = res.data));
   }
 };
 
 defineExpose({
   icons,
-  Mistake
+  Mistake,
 });
 </script>
 
